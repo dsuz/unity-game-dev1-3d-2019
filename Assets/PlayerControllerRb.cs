@@ -16,10 +16,12 @@ public class PlayerControllerRb : MonoBehaviour
     /// <summary>ジャンプ力</summary>
     [SerializeField] float m_jumpPower = 5f;
     Rigidbody m_rb;
+    Animator m_anim;
 
     void Start()
     {
         m_rb = GetComponent<Rigidbody>();
+        m_anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -43,10 +45,15 @@ public class PlayerControllerRb : MonoBehaviour
             }
         }
 
+        // Animator Controller のパラメータをセットする
+        m_anim.SetFloat("Speed", m_rb.velocity.magnitude);
+
         // ジャンプの入力を取得し、押されていたらジャンプする
         if (Input.GetButtonDown("Jump"))
         {
             m_rb.AddForce(Vector3.up * m_jumpPower, ForceMode.Impulse);
+            // Animator Controller のパラメータをセットする
+            m_anim.SetTrigger("Jump");
         }
     }
 }
