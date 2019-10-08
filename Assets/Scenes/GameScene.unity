@@ -307,8 +307,6 @@ GameObject:
   - component: {fileID: 718259671}
   - component: {fileID: 718259670}
   - component: {fileID: 718259669}
-  - component: {fileID: 718259674}
-  - component: {fileID: 718259673}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -383,44 +381,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718259668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.3, y: 1, z: -6.35}
+  m_LocalPosition: {x: 7.39, y: 1, z: -6.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2005156324}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &718259673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 718259668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8578cb774fee52f4e86de564fba0458d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_movingType: 0
-  m_movingSpeed: 5
-  m_jumpPower: 5
---- !u!54 &718259674
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 718259668}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1002386123
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +491,8 @@ GameObject:
   - component: {fileID: 1042215734}
   - component: {fileID: 1042215733}
   - component: {fileID: 1042215732}
+  - component: {fileID: 1042215737}
+  - component: {fileID: 1042215736}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -604,6 +573,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1042215736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042215731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8578cb774fee52f4e86de564fba0458d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_movingType: 0
+  m_movingSpeed: 5
+  m_jumpPower: 5
+--- !u!54 &1042215737
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042215731}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1785893277
 GameObject:
   m_ObjectHideFlags: 0
