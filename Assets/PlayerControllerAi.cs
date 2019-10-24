@@ -8,6 +8,7 @@ public class PlayerControllerAi : MonoBehaviour
     [SerializeField] Transform m_target;
     NavMeshAgent m_agent;
     Vector3 m_cachedTargetPosition;
+    [SerializeField] Animator m_animator;
 
     void Start()
     {
@@ -22,6 +23,12 @@ public class PlayerControllerAi : MonoBehaviour
         {
             m_cachedTargetPosition = m_target.position;
             m_agent.SetDestination(m_cachedTargetPosition);
+        }
+
+        if (m_animator)
+        {
+            m_animator.SetFloat("Speed", m_agent.velocity.magnitude);
+            m_animator.SetBool("Jump", m_agent.isOnOffMeshLink);
         }
     }
 }
