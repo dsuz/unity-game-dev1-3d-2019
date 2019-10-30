@@ -31,7 +31,7 @@ public class RaycastController : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit; // out パラメータで Ray の衝突情報を受け取るための変数
             // Ray を飛ばして、コライダーに当たったかどうかを戻り値で受け取る
-            bool isHit = Physics.Raycast(ray, out hit); // オーバーライドがたくさんあることに注意すること
+            bool isHit = Physics.Raycast(ray, out hit); // オーバーロードがたくさんあることに注意すること
 
             // Ray が当たったかどうかで異なる処理をする
             if (isHit)
