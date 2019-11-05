@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Dummy : MonoBehaviour
 {
-    void AttackBegin()
+    void BeginAttack()
     {
         return;
     }
 
-    void AttackEnd()
+    void EndAttack()
     {
         return;
     }
 
     void Foo(int a)
+    {
+        return;
+    }
+
+    void Foo()
     {
         return;
     }

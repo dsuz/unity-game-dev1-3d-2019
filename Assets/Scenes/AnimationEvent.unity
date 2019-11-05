@@ -214,18 +214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_attackRange: {fileID: 747529059}
---- !u!114 &83234275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83234272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 126e9764f03b9b449ac8422374d848c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &578557645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,7 +402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747529057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.278}
+  m_LocalPosition: {x: 0, y: 0, z: 0.27}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1109178902}
@@ -585,7 +573,7 @@ GameObject:
   - component: {fileID: 1109178897}
   - component: {fileID: 1109178898}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -886,6 +874,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SD_unitychan_humanoid
       objectReference: {fileID: 0}
+    - target: {fileID: 100264, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a9753d8aebb39a04992c29d3acfd495a, type: 2}
+    - target: {fileID: 9500000, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400264, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -930,10 +930,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a9753d8aebb39a04992c29d3acfd495a, type: 2}
     - target: {fileID: 400120, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
