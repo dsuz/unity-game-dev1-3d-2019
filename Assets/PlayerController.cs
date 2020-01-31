@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
             velo.y = m_rb.velocity.y;
             m_rb.velocity = velo;
         }
-        else if (m_controlType == ControlType.Move)
+        else if (m_controlType == ControlType.Move || m_controlType == ControlType.MoveWithSmoothTurn)
         {
             // 入力方向のベクトルを組み立てる
             Vector3 dir = Vector3.forward * v + Vector3.right * h;
@@ -64,7 +64,17 @@ public class PlayerController : MonoBehaviour
                 // カメラを基準に入力が上下=奥/手前, 左右=左右にキャラクターを向ける
                 dir = Camera.main.transform.TransformDirection(dir);    // メインカメラを基準に入力方向のベクトルを変換する
                 dir.y = 0;  // y 軸方向はゼロにして水平方向のベクトルにする
-                this.transform.forward = dir;   // そのベクトルの方向にオブジェクトを向ける
+
+                if (m_controlType == ControlType.Move)
+                {
+                    this.transform.forward = dir;   // そのベクトルの方向にオブジェクトを向ける
+                }
+                else if (m_controlType == ControlType.MoveWithSmoothTurn)
+                {
+                    // 入力方向に滑らかに回転させる
+                    Quaternion targetRotation = Quaternion.LookRotation(dir);
+                    this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime * m_turnSpeed);
+                }
 
                 // 前方に移動する。ジャンプした時の y 軸方向の速度は保持する。
                 Vector3 velo = this.transform.forward * m_movingSpeed;
@@ -133,4 +143,6 @@ public enum ControlType
     Turn,
     /// <summary>カメラを基準とした方向に移動する</summary>
     Move,
+    /// <summary>カメラを基準とした方向に移動する。方向転換の際には滑らかに回転する</summary>
+    MoveWithSmoothTurn,
 }
