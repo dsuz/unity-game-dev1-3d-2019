@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Attack
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,10 +15,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - PostProcessing
+  - Player
+  - Enemy
+  - NoShadow
   - 
   - 
   - 
