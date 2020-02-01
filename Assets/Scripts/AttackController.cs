@@ -36,7 +36,8 @@ public class AttackController : MonoBehaviour
     /// </summary>
     void BeginAttack(int i)
     {
-        m_attackRangeArray[i].gameObject.SetActive(true);
+        //m_attackRangeArray[i].gameObject.SetActive(true);
+        m_attackRangeArray[i].enabled = true;
     }
 
     /// <summary>
@@ -45,7 +46,8 @@ public class AttackController : MonoBehaviour
     /// </summary>
     void EndAttack(int i)
     {
-        m_attackRangeArray[i].gameObject.SetActive(false);
+        //m_attackRangeArray[i].gameObject.SetActive(false);
+        m_attackRangeArray[i].enabled = false;
     }
 
     void Effect(int i)
