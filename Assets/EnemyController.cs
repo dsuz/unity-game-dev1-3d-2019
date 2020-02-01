@@ -15,11 +15,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float m_followTargetInterval = 1f;
     /// <summary>制御する Animator</summary>
     [SerializeField] Animator m_anim;
-    /// <summary>やられてから画面から消えるまでの秒数</summary>
-    [SerializeField] float m_expirationPeriodAfterDeath = 5f;
+    /// <summary>やられた時に表示するオブジェクト</summary>
+    [SerializeField] GameObject m_deathEffect;
     NavMeshAgent m_agent;
     float m_timer;
-
 
     void Start()
     {
@@ -66,18 +65,12 @@ public class EnemyController : MonoBehaviour
         // 攻撃されたら
         if (other.gameObject.tag == "Attack")
         {
-            m_agent.isStopped = true;   // 追跡を辞める
-            GetComponent<Collider>().enabled = false;   // 当たり判定は消す
-
-            // やられモーションに移行する
-            if (m_anim)
+            // 死体を表示して自分は消える
+            if (m_deathEffect)
             {
-                m_anim.applyRootMotion = true;  // やられモーションは root motion を使うのでここで有効にする
-                m_anim.SetTrigger("Dead");
+                Instantiate(m_deathEffect, this.transform.position, this.transform.rotation);
             }
-
-            // 一定時間後にオブジェクトを破棄する
-            Destroy(this.gameObject, m_expirationPeriodAfterDeath);
+            Destroy(this.gameObject);
         }
     }
 }
