@@ -3399,10 +3399,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 40.349999999999994
+    m_Start: 38.63333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -2620726339114362493}
-    m_Duration: 6.833333333333343
+    m_Duration: 6.200000000000003
     m_TimeScale: 1
     m_ParentTrack: {fileID: -2474663269245941394}
     m_EaseInDuration: 0
@@ -3987,7 +3987,7 @@ MonoBehaviour:
     m_Start: 40.349999999999994
     m_ClipIn: 0
     m_Asset: {fileID: -1042462866582228581}
-    m_Duration: 5.916666666666671
+    m_Duration: 3.8666666666666742
     m_TimeScale: 1
     m_ParentTrack: {fileID: -2201741778588680556}
     m_EaseInDuration: 0
@@ -4663,10 +4663,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 38.63333333333333
+    m_Start: 39.38333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -2168239803646869568}
-    m_Duration: 8.550000000000004
+    m_Duration: 5.450000000000003
     m_TimeScale: 1
     m_ParentTrack: {fileID: 5024304046369292969}
     m_EaseInDuration: 0
@@ -5110,13 +5110,13 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 6614575562649409921}
-    m_Duration: 41.03333333333333
+    m_Duration: 40.6
     m_TimeScale: 1
     m_ParentTrack: {fileID: 9024380299845929016}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 2.3999999999999986
+    m_BlendOutDuration: 0.6333333333333329
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -5176,15 +5176,15 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: CM vcam2 Title
   - m_Version: 1
-    m_Start: 38.63333333333333
+    m_Start: 39.96666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 2106769533938197135}
-    m_Duration: 6.054577819257972
+    m_Duration: 4.866666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: 9024380299845929016}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 2.3999999999999986
+    m_BlendInDuration: 0.6333333333333329
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
