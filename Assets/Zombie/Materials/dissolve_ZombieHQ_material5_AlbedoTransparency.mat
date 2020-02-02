@@ -72,11 +72,11 @@ Material:
     - _DissolveWidth: 0.05
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.232
+    - _Glossiness: 0
     - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Metallic: 0.38
     - _Mode: 0
-    - _NormalStrenght: 0.5
+    - _NormalStrenght: 0.86
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -85,6 +85,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.3018868, g: 0.1295835, b: 0.1295835, a: 1}
     - _DissolveColor: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
