@@ -51,7 +51,10 @@ public class GameManager : MonoBehaviour
     {
         foreach (var go in gameObjects)
         {
-            go.SetActive(active);
+            if (go)
+            {
+                go.SetActive(active);
+            }
         }
     }
 }
