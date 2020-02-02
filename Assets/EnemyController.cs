@@ -17,12 +17,15 @@ public class EnemyController : MonoBehaviour
     [SerializeField] Animator m_anim;
     /// <summary>やられた時に表示するオブジェクト</summary>
     [SerializeField] GameObject m_deathEffect;
+    [SerializeField] float m_maxSpeedScale = 1;
+    [SerializeField] float m_minSpeedScale = 1;
     NavMeshAgent m_agent;
     float m_timer;
 
     void Start()
     {
         m_agent = GetComponent<NavMeshAgent>();
+        m_agent.speed = Random.Range(m_minSpeedScale, m_maxSpeedScale) * m_agent.speed;
 
         // target が設定されていなければプレイヤーを target にする
         if (m_target == null)

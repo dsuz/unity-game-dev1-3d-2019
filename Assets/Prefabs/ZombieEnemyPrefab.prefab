@@ -135,6 +135,8 @@ MonoBehaviour:
   m_anim: {fileID: 6196783747273187858}
   m_deathEffect: {fileID: 4375121711329135611, guid: e1950f608a58b664dbfd03047a6eb667,
     type: 3}
+  m_maxSpeedScale: 0.5
+  m_minSpeedScale: 1.5
 --- !u!82 &6395819775703090608
 AudioSource:
   m_ObjectHideFlags: 0
