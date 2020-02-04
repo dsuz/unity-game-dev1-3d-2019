@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody m_rb;
     /// <summary>キャラクターの Animator</summary>
     [SerializeField] Animator m_anim;
+    /// <summary>true の時、キャラクターは動かせない</summary>
+    bool m_isFrozen;
+    [SerializeField] AudioClip m_damageNoise;
+    [SerializeField] AudioSource m_audio;
 
     void Start()
     {
@@ -31,55 +35,58 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // 方向の入力を取得し、方向を求める
-        float v = Input.GetAxisRaw("Vertical");
-        float h = Input.GetAxisRaw("Horizontal");
-
-        // ControlType と入力に応じてキャラクターを動かす
-        if (m_controlType == ControlType.Turn)
+        if (!m_isFrozen)
         {
-            // 左右で回転させる
-            if (h != 0)
-            {
-                this.transform.Rotate(this.transform.up, h * m_turnSpeed);
-            }
+            // 方向の入力を取得し、方向を求める
+            float v = Input.GetAxisRaw("Vertical");
+            float h = Input.GetAxisRaw("Horizontal");
 
-            // 上下で前後移動する。ジャンプした時の y 軸方向の速度は保持する。
-            Vector3 velo = this.transform.forward * m_movingSpeed * v;
-            velo.y = m_rb.velocity.y;
-            m_rb.velocity = velo;
-        }
-        else if (m_controlType == ControlType.Move || m_controlType == ControlType.MoveWithSmoothTurn)
-        {
-            // 入力方向のベクトルを組み立てる
-            Vector3 dir = Vector3.forward * v + Vector3.right * h;
-
-            if (dir == Vector3.zero)
+            // ControlType と入力に応じてキャラクターを動かす
+            if (m_controlType == ControlType.Turn)
             {
-                // 方向の入力がニュートラルの時は、y 軸方向の速度を保持するだけ
-                m_rb.velocity = new Vector3(0f, m_rb.velocity.y, 0f);
-            }
-            else
-            {
-                // カメラを基準に入力が上下=奥/手前, 左右=左右にキャラクターを向ける
-                dir = Camera.main.transform.TransformDirection(dir);    // メインカメラを基準に入力方向のベクトルを変換する
-                dir.y = 0;  // y 軸方向はゼロにして水平方向のベクトルにする
-
-                if (m_controlType == ControlType.Move)
+                // 左右で回転させる
+                if (h != 0)
                 {
-                    this.transform.forward = dir;   // そのベクトルの方向にオブジェクトを向ける
-                }
-                else if (m_controlType == ControlType.MoveWithSmoothTurn)
-                {
-                    // 入力方向に滑らかに回転させる
-                    Quaternion targetRotation = Quaternion.LookRotation(dir);
-                    this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime * m_turnSpeed);
+                    this.transform.Rotate(this.transform.up, h * m_turnSpeed);
                 }
 
-                // 前方に移動する。ジャンプした時の y 軸方向の速度は保持する。
-                Vector3 velo = this.transform.forward * m_movingSpeed;
+                // 上下で前後移動する。ジャンプした時の y 軸方向の速度は保持する。
+                Vector3 velo = this.transform.forward * m_movingSpeed * v;
                 velo.y = m_rb.velocity.y;
                 m_rb.velocity = velo;
+            }
+            else if (m_controlType == ControlType.Move || m_controlType == ControlType.MoveWithSmoothTurn)
+            {
+                // 入力方向のベクトルを組み立てる
+                Vector3 dir = Vector3.forward * v + Vector3.right * h;
+
+                if (dir == Vector3.zero)
+                {
+                    // 方向の入力がニュートラルの時は、y 軸方向の速度を保持するだけ
+                    m_rb.velocity = new Vector3(0f, m_rb.velocity.y, 0f);
+                }
+                else
+                {
+                    // カメラを基準に入力が上下=奥/手前, 左右=左右にキャラクターを向ける
+                    dir = Camera.main.transform.TransformDirection(dir);    // メインカメラを基準に入力方向のベクトルを変換する
+                    dir.y = 0;  // y 軸方向はゼロにして水平方向のベクトルにする
+
+                    if (m_controlType == ControlType.Move)
+                    {
+                        this.transform.forward = dir;   // そのベクトルの方向にオブジェクトを向ける
+                    }
+                    else if (m_controlType == ControlType.MoveWithSmoothTurn)
+                    {
+                        // 入力方向に滑らかに回転させる
+                        Quaternion targetRotation = Quaternion.LookRotation(dir);
+                        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime * m_turnSpeed);
+                    }
+
+                    // 前方に移動する。ジャンプした時の y 軸方向の速度は保持する。
+                    Vector3 velo = this.transform.forward * m_movingSpeed;
+                    velo.y = m_rb.velocity.y;
+                    m_rb.velocity = velo;
+                }
             }
         }
 
@@ -134,6 +141,32 @@ public class PlayerController : MonoBehaviour
         Debug.DrawLine(start, end); // 動作確認用に Scene ウィンドウ上で線を表示する
         bool isGrounded = Physics.Linecast(start, end); // 引いたラインに何かがぶつかっていたら true とする
         return isGrounded;
+    }
+    
+    /// <summary>
+    /// 動きを停止・再開する
+    /// </summary>
+    /// <param name="frozen">true を渡すと動かせなくなる。false を渡すと動かせるようになる。</param>
+    public void Freeze(bool frozen)
+    {
+        m_isFrozen = frozen;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "EnemyAttack")
+        {
+            if (m_audio && m_damageNoise)
+            {
+                m_audio.clip = m_damageNoise;
+                m_audio.Play();
+            }
+
+            if (m_anim)
+            {
+                m_anim.SetTrigger("Damaged");
+            }
+        }
     }
 }
 

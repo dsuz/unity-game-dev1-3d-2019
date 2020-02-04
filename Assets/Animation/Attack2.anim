@@ -109545,6 +109545,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 1
   m_Events:
+  - time: 0
+    functionName: FreezePlayer
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.36666667
     functionName: Effect
     data: 
@@ -109565,4 +109572,11 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
+    messageOptions: 0
+  - time: 1.2
+    functionName: DefrostPlayer
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0

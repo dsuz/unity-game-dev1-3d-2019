@@ -237,7 +237,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: 1376750897}
+  m_Mesh: {fileID: 1955276265}
 --- !u!114 &685527535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12356,7 +12356,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685527533}
-  m_Mesh: {fileID: 1376750897}
+  m_Mesh: {fileID: 1955276265}
 --- !u!4 &685527538
 Transform:
   m_ObjectHideFlags: 0
@@ -12487,6 +12487,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 89759961220539806, guid: ccd24efa3b2cb3b4eaa627b820e099a2,
+        type: 3}
+      propertyPath: m_damageNoise
+      value: 
+      objectReference: {fileID: 8300000, guid: ed48e7e80701b8e49ba3a8f5a55cf6f1, type: 3}
+    - target: {fileID: 89759961220539806, guid: ccd24efa3b2cb3b4eaa627b820e099a2,
+        type: 3}
+      propertyPath: m_audio
+      value: 
+      objectReference: {fileID: 2001762577}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccd24efa3b2cb3b4eaa627b820e099a2, type: 3}
 --- !u!1 &1217089297
@@ -12517,7 +12527,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.16
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -12580,13 +12590,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!43 &1376750897
+--- !u!43 &1955276265
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28868
+  m_Name: pb_Mesh391942
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12743,6 +12753,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!82 &2001762577 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1102937696, guid: ccd24efa3b2cb3b4eaa627b820e099a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1085509689}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6196783746802987642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12754,11 +12770,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1321069542407737324, guid: 29bdcbb6a1f1ed845b4c1994215f7f12,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1321069542407737312, guid: 29bdcbb6a1f1ed845b4c1994215f7f12,
         type: 3}

@@ -60,6 +60,11 @@ public class EnemyController : MonoBehaviour
         if (m_anim)
         {
             m_anim.SetFloat("Speed", m_agent.velocity.magnitude);
+
+            if (m_agent.remainingDistance < m_agent.stoppingDistance * 1.1f)
+            {
+                m_anim.SetTrigger("Attack");
+            }
         }
     }
 
