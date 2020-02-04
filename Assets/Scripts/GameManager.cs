@@ -57,6 +57,13 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void ReloadScene()
+    {
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        Debug.Log("Reload " + sceneName);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+    }
 }
 
 public enum Status
