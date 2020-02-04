@@ -12487,16 +12487,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 89759961220539806, guid: ccd24efa3b2cb3b4eaa627b820e099a2,
-        type: 3}
-      propertyPath: m_damageNoise
-      value: 
-      objectReference: {fileID: 8300000, guid: ed48e7e80701b8e49ba3a8f5a55cf6f1, type: 3}
-    - target: {fileID: 89759961220539806, guid: ccd24efa3b2cb3b4eaa627b820e099a2,
-        type: 3}
-      propertyPath: m_audio
-      value: 
-      objectReference: {fileID: 2001762577}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccd24efa3b2cb3b4eaa627b820e099a2, type: 3}
 --- !u!1 &1217089297
@@ -12753,12 +12743,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!82 &2001762577 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1102937696, guid: ccd24efa3b2cb3b4eaa627b820e099a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1085509689}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6196783746802987642
 PrefabInstance:
   m_ObjectHideFlags: 0
