@@ -789,7 +789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f326d35b6fb60641a3d3559aa2fb242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_forceMultiplier: 50
+  m_maxForce: 60
+  m_minForce: 45
   m_dissolveCurve:
     serializedVersion: 2
     m_Curve:
